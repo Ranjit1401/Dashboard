@@ -2,6 +2,8 @@ import { Plus, Upload, FileText } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { useState, useCallback, memo } from "react";
+import React from "react";
+
 
 interface UploadSectionProps {
   onUpload?: (files: FileList) => void;

@@ -7,10 +7,11 @@ import {
   User, 
   Settings, 
   LogOut,
-  GraduationCap
+  GraduationCap 
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "./ui/utils";
+import React from "react";
 
 interface NavigationItem {
   icon: React.ComponentType<{ className?: string }>;

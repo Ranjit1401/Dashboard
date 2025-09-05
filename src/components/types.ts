@@ -1,4 +1,6 @@
 // Shared TypeScript interfaces for the dashboard
+import React from "react";
+
 
 export interface Document {
   id: string;
