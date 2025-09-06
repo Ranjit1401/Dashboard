@@ -1,4 +1,9 @@
 import { Card, CardContent } from "./ui/card";
+import { UploadSection } from "./UploadSection";
+import { RecentDocuments } from "./RecentDocuments";
+import { CategoryCards } from "./CategoryCards";
+import { StudentProfile } from "./StudentProfile";
+import React from "react"
 import { 
   FileText, 
   Award, 
@@ -68,9 +73,9 @@ export function DashboardOverview() {
                 )}
               </div>
             </div>
-          </CardContent>
+          </CardContent>          
         </Card>
-      ))}
+      ))} 
     </div>
   );
 }

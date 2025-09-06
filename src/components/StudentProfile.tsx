@@ -2,6 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { Link,NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 import { 
   User, 
   Calendar, 
@@ -10,6 +13,7 @@ import {
 } from "lucide-react";
 
 export function StudentProfile() {
+  const navigate = useNavigate();
   return (
     <Card>
       <CardHeader>
@@ -67,9 +71,11 @@ export function StudentProfile() {
           </div>
         </div>
 
-        <Button variant="outline" className="w-full">
-          Edit Profile
-        </Button>
+        {/* <Link to='p'>
+          <Button variant="outline" className="w-full">        
+            Edit Profile            
+          </Button>
+        </Link> */}
       </CardContent>
     </Card>
   );

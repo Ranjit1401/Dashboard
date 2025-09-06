@@ -1,5 +1,9 @@
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import { Link,NavLink, } from "react-router-dom";
+
+import React from "react";
+
 import { 
   LayoutDashboard, 
   FileText, 
@@ -11,14 +15,15 @@ import {
   LogOut,
   GraduationCap
 } from "lucide-react";
+import path from "path";
 
 const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
+  { icon: LayoutDashboard, label: "Dashboard" ,path:"/", active: true },
   { icon: FileText, label: "My Documents" },
   { icon: Upload, label: "Upload" },
   { icon: Award, label: "Certificates" },
   { icon: FolderOpen, label: "Categories" },
-  { icon: User, label: "Profile" },
+  { icon: User, label: "Profile" ,path: "/profile" },
   { icon: Settings, label: "Settings" },
 ];
 
@@ -44,6 +49,7 @@ export function Sidebar() {
           {navItems.map((item, index) => (
             <Button
               key={index}
+              asChild
               variant={item.active ? "secondary" : "ghost"}
               className={`w-full justify-start gap-3 h-11 ${
                 item.active 
@@ -51,8 +57,12 @@ export function Sidebar() {
                   : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               }`}
             >
+              {/* <item.icon className="w-5 h-5" />
+              {item.label} */}
+              <Link to={item.path}>   {/* 👈 this makes it navigate */}
               <item.icon className="w-5 h-5" />
               {item.label}
+            </Link>
             </Button>
           ))}
         </div>
@@ -67,6 +77,7 @@ export function Sidebar() {
           Logout
         </Button>
       </nav>
+     
     </div>
   );
 }
