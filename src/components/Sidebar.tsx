@@ -12,17 +12,22 @@ import {
   GraduationCap
 } from "lucide-react";
 
+interface SidebarProps {
+  currentPage: string;
+  onNavigate: (page: string) => void;
+}
+
 const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
-  { icon: FileText, label: "My Documents" },
-  { icon: Upload, label: "Upload" },
-  { icon: Award, label: "Certificates" },
-  { icon: FolderOpen, label: "Categories" },
-  { icon: User, label: "Profile" },
-  { icon: Settings, label: "Settings" },
+  { icon: LayoutDashboard, label: "Dashboard", key: "dashboard" },
+  { icon: FileText, label: "My Documents", key: "documents" },
+  { icon: Upload, label: "Upload", key: "upload" },
+  { icon: Award, label: "Certificates", key: "certificates" },
+  { icon: FolderOpen, label: "Categories", key: "categories" },
+  { icon: User, label: "Profile", key: "profile" },
+  { icon: Settings, label: "Settings", key: "settings" },
 ];
 
-export function Sidebar() {
+export function Sidebar({ currentPage, onNavigate }: SidebarProps) {
   return (
     <div className="w-64 h-screen bg-sidebar border-r border-sidebar-border flex flex-col">
       {/* Logo */}
@@ -44,12 +49,13 @@ export function Sidebar() {
           {navItems.map((item, index) => (
             <Button
               key={index}
-              variant={item.active ? "secondary" : "ghost"}
+              variant={currentPage === item.key ? "secondary" : "ghost"}
               className={`w-full justify-start gap-3 h-11 ${
-                item.active 
+                currentPage === item.key
                   ? "bg-sidebar-accent text-sidebar-accent-foreground" 
                   : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               }`}
+              onClick={() => onNavigate(item.key)}
             >
               <item.icon className="w-5 h-5" />
               {item.label}
